@@ -17,22 +17,6 @@ designed to be self-hosted, fully extensible, and contributor-friendly.
 
 </div>
 
----
-
-## ✨ Why Rexxy?
-
-| Feature | MEE6 | Dank Memer | **Rexxy** |
-|---|:---:|:---:|:---:|
-| Open source | ❌ | ❌ | ✅ |
-| Self-hostable | ❌ | ❌ | ✅ |
-| Plugin system | ❌ | ❌ | ✅ |
-| Slash + prefix commands | ✅ | ✅ | ✅ |
-| Custom bot name/branding | ❌ | ❌ | ✅ |
-| SQLite & PostgreSQL | ❌ | ❌ | ✅ |
-| Docker support | ❌ | ❌ | ✅ |
-| Contributor-friendly | ❌ | ❌ | ✅ |
-
----
 
 ## 🚀 Quick Start
 
@@ -66,7 +50,7 @@ The wizard will ask you a few questions and scaffold a fully configured bot proj
 
 ---
 
-## 📦 Generated Project Structure
+##  Generated Project Structure
 
 ```
 my-rexxy-bot/
@@ -98,7 +82,7 @@ my-rexxy-bot/
 
 ---
 
-## 🔌 Built-in Plugins
+## Built-in Plugins
 
 ### Moderation
 Slash commands: `/ban`, `/kick`, `/warn`, `/timeout`, `/purge`
@@ -118,7 +102,7 @@ Posts to a channel named `#logs` or `#audit-log`.
 
 ---
 
-## 🏗 Building Your Own Plugin
+##  Building Your Own Plugin
 
 Create a folder under `src/plugins/my-plugin/` and export a `Plugin` object:
 
