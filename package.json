@@ -1,0 +1,16 @@
+{
+  "name": "rexxy",
+  "version": "1.0.0",
+  "description": "Modern open-source modular Discord bot framework",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

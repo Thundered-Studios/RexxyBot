@@ -1,0 +1,43 @@
+{
+  "name": "create-guildbot",
+  "version": "1.0.0",
+  "description": "CLI generator for Rexxy – the modern open-source modular Discord bot framework",
+  "main": "dist/index.js",
+  "bin": {
+    "create-guildbot": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist/"
+  ],
+  "keywords": [
+    "discord",
+    "bot",
+    "rexxy",
+    "cli",
+    "generator",
+    "discord.js"
+  ],
+  "author": "Rexxy Contributors",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^8.2.10",
+    "@types/node": "^20.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
