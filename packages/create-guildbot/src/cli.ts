@@ -5,7 +5,7 @@
 import chalk from "chalk";
 import inquirer from "inquirer";
 import path from "path";
-import { generateProject } from "./generator";
+import { generateProject, updateProject } from "./generator";
 import type { BotConfig, DatabaseChoice, PluginChoice } from "./types";
 
 const REXXY_BANNER = `
@@ -161,4 +161,23 @@ export async function runCLI(): Promise<void> {
 
   console.log();
   await generateProject(config);
+}
+
+export async function runUpdate(): Promise<void> {
+  console.clear();
+  console.log(REXXY_BANNER);
+  console.log(
+    chalk.bold.white("  ") +
+      chalk.bold.hex("#5865F2")("Rexxy") +
+      chalk.bold.white(" — Framework Updater\n")
+  );
+  console.log(
+    chalk.gray(
+      "  This will update your project's core framework files to the latest\n" +
+      "  templates while preserving all of your custom code and configuration.\n"
+    )
+  );
+
+  const targetDir = process.cwd();
+  await updateProject(targetDir);
 }

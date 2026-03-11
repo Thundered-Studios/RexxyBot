@@ -171,15 +171,28 @@ function entrypoint(config: BotConfig): string {
  */
 
 import { RexxyClient } from "./core/RexxyClient";
+${config.dashboard ? `import { startDashboard } from "../dashboard/index";` : ""}
 
 const client = new RexxyClient();
 
-// Expose db on the Discord client for use by plugin event handlers.
+// Expose db and command map on the Discord client for plugin event handlers.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 (client.discord as any).__rexxyDb = client.db;
 
 // ── Start ───────────────────────────────────────────────────────────────────
-client.start().catch((err) => {
+client.start().then(() => {
+  // Expose command map after plugins are loaded so /help can read it.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (client.discord as any).__rexxyCommands = client.commandHandler.commands;
+${
+  config.dashboard
+    ? `
+  // Start the web dashboard (default http://localhost:3000 — override with DASHBOARD_PORT).
+  const dashPort = Number(process.env.DASHBOARD_PORT ?? 3000);
+  startDashboard(client, dashPort);
+`
+    : ""
+}}).catch((err) => {
   console.error("Fatal error starting ${config.botName}:", err);
   process.exit(1);
 });
